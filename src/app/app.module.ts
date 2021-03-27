@@ -14,6 +14,8 @@ import { LoginComponent } from './Pages/login/login.component';
 
 import { authInterceptorProviders } from './Helpers/auth.interceptor';
 import { CalendarComponent } from './Pages/calendar/calendar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -31,7 +33,9 @@ FullCalendarModule.registerPlugins([
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
