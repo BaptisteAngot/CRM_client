@@ -11,11 +11,12 @@ import interaction from '@fullcalendar/interaction';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Pages/login/login.component';
+import {DialogEvent} from './Pages/calendar/Dialog/dialog-event.component';
+import { CalendarComponent } from './Pages/calendar/calendar.component';
 
 import { authInterceptorProviders } from './Helpers/auth.interceptor';
-import { CalendarComponent } from './Pages/calendar/calendar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -27,6 +28,7 @@ FullCalendarModule.registerPlugins([
     AppComponent,
     LoginComponent,
     CalendarComponent,
+    DialogEvent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ FullCalendarModule.registerPlugins([
     HttpClientModule,
     FullCalendarModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatDialogModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
