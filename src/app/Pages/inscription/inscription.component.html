@@ -1,0 +1,78 @@
+<div class="form">
+  <h1>Inscription d'un utilisateur</h1>
+  <form *ngIf="!registerSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div>
+      <label for="email"></label>
+      <input type="text" id="email" name="email" [(ngModel)]="newUser.email" minlength="6" maxlength="254" required email #email="ngModel" placeholder="Adresse mail" class="form__type-input">
+      <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+        <div class="form--error" *ngIf="email.errors.email">Cette adresse mail n'est pas valide.</div>
+        <div class="form--error" *ngIf="email.errors.required">Une adresse mail doit être renseignée.</div>
+        <div class="form--error" *ngIf="email.errors.maxlength">Adresse email trop courte. 6 caractères min.</div>
+        <div class="form--error" *ngIf="email.errors.maxlength">Adresse email trop longue. 254 caractères max.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="lastname"></label>
+      <input type="text" id="lastname" name="lastname" [(ngModel)]="newUser.lastname" maxlength="254" required  #lastname="ngModel" placeholder="Nom de famille" class="form__type-input">
+      <div *ngIf="lastname.invalid && (lastname.touched)" class="alert alert-danger">
+        <div class="form--error" *ngIf="lastname.errors.required">Un nom de famille doit être renseignée.</div>
+        <div class="form--error" *ngIf="lastname.errors.maxlength">Nom de famille trop long. 254 caractères max.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="firstname"></label>
+      <input type="text" id="firstname" name="firstname" [(ngModel)]="newUser.firstname" maxlength="254" required  #firstname="ngModel" placeholder="Prénom" class="form__type-input">
+      <div *ngIf="firstname.invalid && (firstname.touched)" class="alert alert-danger">
+        <div class="form--error" *ngIf="firstname.errors.required">Un prénom doit être renseignée.</div>
+        <div class="form--error" *ngIf="firstname.errors.maxlength">Le prénom trop long. 254 caractères max.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="telephone"></label>
+      <input type="text" id="telephone" name="telephone" [(ngModel)]="newUser.telephone" minlength="10" maxlength="10" required  #telephone="ngModel" placeholder="Numéro de téléphone" class="form__type-input">
+      <div *ngIf="telephone.invalid && (telephone.touched)" class="alert alert-danger">
+        <div class="form--error" *ngIf="telephone.errors.required">Un numéro de téléphone est obligatoire.</div>
+        <div class="form--error" *ngIf="telephone.errors.minlength">Un numéro de téléphone est constitué de 10 chiffres.</div>
+        <div class="form--error" *ngIf="telephone.errors.maxlength">Un numéro de téléphone est constitué de 10 chiffres.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="fonction"></label>
+      <input type="text" id="fonction" name="fonction" [(ngModel)]="newUser.fonction" maxlength="255" required  #fonction="ngModel" placeholder="Fonction de l'employé" class="form__type-input">
+      <div *ngIf="fonction.invalid && (fonction.touched)" class="alert alert-danger">
+        <div class="form--error" *ngIf="fonction.errors.required">La fonction est obligatoire.</div>
+        <div class="form--error" *ngIf="fonction.errors.maxlength">La fonction doit être constitué maximum 255 caractères.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="password"></label>
+      <input type="password" name="password" id="password" [(ngModel)]="newUser.password" maxlength="255" required #password="ngModel" placeholder="Mot de passe" class="form__type-input">
+      <div *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+        <div class="form--error" *ngIf="password.errors.required">Un mot de passe doit être renseigné.</div>
+        <div class="form--error" *ngIf="password.errors.maxlength">Mot de passe trop long. 255 caractères max.</div>
+      </div>
+    </div>
+
+    <div class="checkbox-signin">
+      <mat-checkbox [(ngModel)]="newUser.role" color="primary" id="checkboxAdmin" name="policy"></mat-checkbox>
+      <label for="checkbox" style="font-size: 1.5rem">Admin</label>
+    </div>
+
+    <div class="checkbox-signin">
+      <mat-checkbox [(ngModel)]="newUser.rgpd" color="primary" id="checkbox" name="policy"></mat-checkbox>
+      <label for="checkbox" style="font-size: 1.5rem">j'ai lu et j'accepte la politique de confidentialité</label>
+    </div>
+    <div
+      class="alert alert-danger" role="alert" *ngIf="f.submitted && registerFailed"> Problème lors de la création de votre compte {{ errorMessage }}
+    </div>
+
+    <input *ngIf="newUser.rgpd && f.form.valid" type="submit" class="form__btn-submit" value="Valider">
+    <input *ngIf="!newUser.rgpd || !f.form.valid" type="submit" disabled class="form__btn-submit disabled" value="Valider">
+
+  </form>
+</div>

@@ -16,7 +16,12 @@ import { CalendarComponent } from './Pages/calendar/calendar.component';
 
 import { authInterceptorProviders } from './Helpers/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InscriptionComponent } from './Pages/inscription/inscription.component';
+
+import {MatSelectModule} from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
+
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -28,7 +33,8 @@ FullCalendarModule.registerPlugins([
     AppComponent,
     LoginComponent,
     CalendarComponent,
-    DialogEvent
+    DialogEvent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,9 @@ FullCalendarModule.registerPlugins([
     HttpClientModule,
     FullCalendarModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
