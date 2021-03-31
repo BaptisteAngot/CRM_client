@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{user.last_name}} {{user.first_name}}</mat-card-title>
+    <mat-card-subtitle>{{user.fonction}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <mat-label>Mail</mat-label>
+      <input matInput placeholder="toto@toto.com" value="{{user.email}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom de famille</mat-label>
+      <input matInput value="{{user.last_name}}">
+    </mat-form-field>
+    <mat-form-field  class="example-full-width">
+      <mat-label>Prénom</mat-label>
+      <input matInput value="{{user.first_name}}">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telephone</mat-label>
+      <input matInput value="{{user.telephone}}">
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>

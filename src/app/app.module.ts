@@ -21,6 +21,11 @@ import { MenuComponent } from './Components/menu/menu.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+
+
+import { ProfilComponent } from './Pages/profil/profil.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -34,7 +39,8 @@ FullCalendarModule.registerPlugins([
     LoginComponent,
     CalendarComponent,
     DialogEvent,
-    MenuComponent
+    MenuComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +52,9 @@ FullCalendarModule.registerPlugins([
     MatDialogModule,
     MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
