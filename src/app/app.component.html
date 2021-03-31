@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<div id="burger" class="page-container">
+  <div class="colorDarkblue">
+    <button mat-button class="menu-button" (click)="open()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div id="menuBurger">
+    <a routerLink="/">Accueil</a>
+    <a routerLink="/calendar">Prospect</a>
+    <a routerLink="">Client</a>
+  </div>
+</div>
+<div class="wrapper" *ngIf="user !=null">
+  <app-menu id="menu" [user]="user"></app-menu>
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-login *ngIf="user == null"></app-login>
