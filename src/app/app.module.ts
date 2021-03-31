@@ -17,6 +17,11 @@ import { CalendarComponent } from './Pages/calendar/calendar.component';
 import { authInterceptorProviders } from './Helpers/auth.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MenuComponent } from './Components/menu/menu.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -28,7 +33,8 @@ FullCalendarModule.registerPlugins([
     AppComponent,
     LoginComponent,
     CalendarComponent,
-    DialogEvent
+    DialogEvent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,10 @@ FullCalendarModule.registerPlugins([
     HttpClientModule,
     FullCalendarModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
