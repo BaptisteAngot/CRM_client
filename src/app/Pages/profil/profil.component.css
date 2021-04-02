@@ -1,8 +1,21 @@
 .example-card {
-  max-width: 400px;
+  max-width: 15rem;
+  margin: 0 auto;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+.classDeSesMorts {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.centerInput {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }

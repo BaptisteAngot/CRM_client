@@ -6,6 +6,7 @@
   </div>
   <div id="menuBurger">
     <a routerLink="/">Accueil</a>
+    <a routerLink="/profil">Profil</a>
     <a routerLink="/prospect">Prospect</a>
     <a routerLink="">Client</a>
     <a routerLink="/calendar">Calendar</a>
@@ -14,7 +15,9 @@
 <div class="wrapper" *ngIf="user !=null">
   <app-menu id="menu" [user]="user"></app-menu>
   <div id="content">
-    <router-outlet></router-outlet>
+    <div id="contentBody">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 <app-login *ngIf="user == null"></app-login>

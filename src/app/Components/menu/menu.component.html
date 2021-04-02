@@ -1,6 +1,6 @@
 <nav id="sidebar">
   <div class="margin">
-    <h2 class="mat-body-strong">{{user.username}}</h2>
+    <h2 class="mat-body-strong"><a routerLink="/profil">{{user.username}}</a></h2>
     <h3 class="nameEntreprise">{{nameSociete}}</h3>
   </div>
   <hr>
@@ -13,6 +13,6 @@
   <div class="bottomMenu">
     <hr>
     <a href="" class="green" *ngIf="admin">Administrateur</a>
-    <a class="green" href="">Se déconnecter</a>
+    <a class="green" (click)="disconnectUser()">Se déconnecter</a>
   </div>
 </nav>
