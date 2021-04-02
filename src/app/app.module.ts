@@ -23,9 +23,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 
 import { ProfilComponent } from './Pages/profil/profil.component';
+import { ProspectComponent } from './Pages/prospect/prospect.component';
+import {MatSortModule} from '@angular/material/sort';
+import { ProspectDetailComponent } from './Pages/prospect-detail/prospect-detail.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 FullCalendarModule.registerPlugins([
@@ -40,7 +48,9 @@ FullCalendarModule.registerPlugins([
     CalendarComponent,
     DialogEvent,
     MenuComponent,
-    ProfilComponent
+    ProfilComponent,
+    ProspectComponent,
+    ProspectDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +64,11 @@ FullCalendarModule.registerPlugins([
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

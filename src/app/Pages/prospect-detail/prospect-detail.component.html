@@ -1,0 +1,59 @@
+<mat-card>
+  <div class="form">
+    <h1 class="center-align">Prospect : {{prospect.nom}}</h1>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate *ngIf="!sendSuccesfull" action="">
+      <mat-grid-list cols="3" rowHeight="5:1">
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Mail</mat-label>
+            <input [email] [disabled]="!isEditing" [(ngModel)]="prospect.mail" #mail="ngModel" name="mail" type="email" required maxlength="254" matInput>
+            <div *ngIf="mail.invalid && (mail.touched)" class="alert alert-danger">
+              <div class="form--error" *ngIf="mail.errors.required">Une adresse mail doit être renseignée.</div>
+              <div class="form--error" *ngIf="mail.errors.maxlength">Adresse email trop longue. 254 caractères max.</div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input [disabled]="!isEditing" type="text" matInput #nom="ngModel" maxlength="254" [(ngModel)]="prospect.nom" name="nom">
+            <div *ngIf="nom.invalid && (nom.touched)" class="alert alert-danger">
+              <div class="form--error" *ngIf="nom.errors.maxlength">Nom trop longue. 254 caractères max.</div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea [disabled]="!isEditing" matInput [(ngModel)]="prospect.description" #description="ngModel" maxlength="1024" name="description"></textarea>
+            <div *ngIf="description.invalid && (description.touched)" class="alert alert-danger">
+              <div *ngIf="description.errors.maxlength" class="form--error">Description trop longue. 1024 caractères max.</div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Origine</mat-label>
+            <input [disabled]="true" type="text" matInput value="{{prospect.origine.name}}">
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <input *ngIf="f.form.valid && isEditing" type="submit" class="form__btn-submit center-button" value="Valider">
+    </form>
+
+  </div>
+  <mat-card-footer>
+    <mat-grid-list cols="2" rowHeight="5:1">
+      <mat-grid-tile>
+        <button mat-button [class.selectedButton]="prospect.status === 'CHAUD'" (click)="editStatus('CHAUD')" >🥵</button> |
+        <button mat-button [class.selectedButton]="prospect.status === 'TIEDE'" (click)="editStatus('TIEDE')">😐</button> |
+        <button mat-button [class.selectedButton]="prospect.status === 'FROID'" (click)="editStatus('FROID')">🥶</button>
+      </mat-grid-tile>
+      <mat-grid-tile class="text-align-right">
+        <button *ngIf="!isEditing" (click)="editUser()" mat-button ><mat-icon class="button-red" aria-hidden="false" aria-label="auto_fix_high icon">auto_fix_high</mat-icon></button>
+        <button *ngIf="!prospect.disabled" (click)="disabledProspect(prospect.id)" mat-button ><mat-icon class="button-red" aria-hidden="false" aria-label="disabled_by_default icon">disabled_by_default</mat-icon></button>
+        <button (click)="deleteProspect(prospect.id)" mat-button ><mat-icon class="button-red" aria-hidden="false" aria-label="delete_forever icon">delete_forever</mat-icon></button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-footer>
+</mat-card>

@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.headerFilter {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 2px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 5px 5px black;
+}
+
+.filterInput {
+  margin: 0 1rem;
+}

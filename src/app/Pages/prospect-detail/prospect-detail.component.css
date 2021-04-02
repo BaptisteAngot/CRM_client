@@ -1,0 +1,16 @@
+.center-align {
+  text-align: center;
+}
+
+.center-button {
+  display: block;
+  margin: 0 auto;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.selectedButton {
+  border: 2px solid red;
+}

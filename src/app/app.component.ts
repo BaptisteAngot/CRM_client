@@ -11,6 +11,7 @@ export class AppComponent {
   user: any;
   constructor(private tokenStorageService: TokenStorageService) {
     this.user = tokenStorageService.getUser();
+    console.log(this.user);
   }
   open(): void {
     const section = document.getElementById('menuBurger');
