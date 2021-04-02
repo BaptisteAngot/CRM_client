@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { environment } from '../../../environments/environment';
+import {TokenStorageService} from '../../Services/token-storage.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +14,7 @@ export class MenuComponent implements OnInit {
   nameSociete: string;
   admin = false;
 
-  constructor() {
+  constructor(private tokenService: TokenStorageService, private router: Router) {
     this.nameSociete = environment.nameSociete;
   }
 
@@ -22,4 +24,8 @@ export class MenuComponent implements OnInit {
     }
   }
 
+  disconnectUser(): void {
+    this.tokenService.signOut();
+    this.router.navigate(['/connexion']);
+  }
 }
