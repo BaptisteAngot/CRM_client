@@ -34,6 +34,8 @@ import { ProspectComponent } from './Pages/prospect/prospect.component';
 import {MatSortModule} from '@angular/material/sort';
 import { ProspectDetailComponent } from './Pages/prospect-detail/prospect-detail.component';
 import {MatSelectModule} from '@angular/material/select';
+import { ProspectAddComponent } from './Pages/prospect-add/prospect-add.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 FullCalendarModule.registerPlugins([
@@ -50,7 +52,8 @@ FullCalendarModule.registerPlugins([
     MenuComponent,
     ProfilComponent,
     ProspectComponent,
-    ProspectDetailComponent
+    ProspectDetailComponent,
+    ProspectAddComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ FullCalendarModule.registerPlugins([
     MatTableModule,
     MatSortModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

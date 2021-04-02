@@ -7,10 +7,6 @@
   margin: 0 auto;
 }
 
-.text-align-right {
-  text-align: right;
-}
-
 .selectedButton {
   border: 2px solid red;
 }

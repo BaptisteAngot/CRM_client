@@ -1,0 +1,66 @@
+<mat-card>
+  <div class="form">
+    <h1 class="center-align">Nouveau prospect</h1>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate *ngIf="!sendSuccesfull" action="">
+      <mat-grid-list cols="3" rowHeight="3:1">
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Mail</mat-label>
+            <input [email] [(ngModel)]="prospect.mail" #mail="ngModel" name="mail" type="email" required maxlength="254" matInput>
+            <div *ngIf="mail.invalid && (mail.touched)" class="alert alert-danger">
+              <div class="form--error" *ngIf="mail.errors.required">Une adresse mail doit être renseignée.</div>
+              <div class="form--error" *ngIf="mail.errors.maxlength">Adresse email trop longue. 254 caractères max.</div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input type="text" matInput #nom="ngModel" maxlength="254" [(ngModel)]="prospect.nom" name="nom">
+            <div *ngIf="nom.invalid && (nom.touched)" class="alert alert-danger">
+              <div class="form--error" *ngIf="nom.errors.maxlength">Nom trop longue. 254 caractères max.</div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="prospect.description" #description="ngModel" maxlength="1024" name="description"></textarea>
+            <div *ngIf="description.invalid && (description.touched)" class="alert alert-danger">
+              <div *ngIf="description.errors.maxlength" class="form--error">Description trop longue. 1024 caractères max.</div>
+            </div>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select [(ngModel)]="prospect.status" name="status">
+              <mat-option value="CHAUD">
+                Chaud
+              </mat-option>
+              <mat-option value="TIEDE">
+                Tiède
+              </mat-option>
+              <mat-option value="FROID">
+                Froid
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="fill">
+            <mat-label>Origin</mat-label>
+            <mat-select required [(ngModel)]="prospect.origine" name="origine">
+              <mat-option *ngFor="let origine of origin" value="{{origine.id}}">{{origine.nom}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-checkbox required [(ngModel)]="prospect.rgpd" name="rgpd">Consent User</mat-checkbox>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <input *ngIf="f.form.valid" type="submit" class="form__btn-submit center-button" value="Valider">
+      <p *ngIf="errors !== null" class="red-text">Erreur : {{errors['1'] }}</p>
+    </form>
+  </div>
+</mat-card>
