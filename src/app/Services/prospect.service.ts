@@ -43,4 +43,8 @@ export class ProspectService {
     return this.httpClient.put('api/prospect/update/' + infos.id, JSON.stringify(infos), httpOptions);
   }
 
+  createProspect(infos): Observable<any> {
+    return this.httpClient.post('api/prospect/add', JSON.stringify(infos), httpOptions);
+  }
+
 }

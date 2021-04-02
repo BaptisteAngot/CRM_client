@@ -1,8 +1,15 @@
 <div class="headerFilter">
-  <mat-form-field class="filterInput">
-    <mat-label>Filtre de recherche..</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Filtre de recherche.." #input>
-  </mat-form-field>
+  <mat-grid-list cols="2" rowHeight="10:1">
+    <mat-grid-tile>
+      <mat-form-field class="filterInput">
+        <mat-label>Filtre de recherche..</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtre de recherche.." #input>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile class="text-align-right">
+      <a class="alignOnRight" routerLink="/prospect-add"><mat-icon class="margin" aria-hidden="false" aria-label="icon">add</mat-icon></a>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
