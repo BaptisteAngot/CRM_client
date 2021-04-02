@@ -1,5 +1,5 @@
 <div id="burger" class="page-container">
-  <div class="colorDarkblue">
+  <div class="colorDarkblue" *ngIf="user == null">
     <button mat-button class="menu-button" (click)="open()">
       <mat-icon>menu</mat-icon>
     </button>
