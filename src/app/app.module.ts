@@ -38,7 +38,6 @@ import { ProspectAddComponent } from './Pages/prospect-add/prospect-add.componen
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {InscriptionComponent} from './Pages/inscription/inscription.component';
 
-
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
   interaction
@@ -55,6 +54,8 @@ FullCalendarModule.registerPlugins([
     ProspectComponent,
     ProspectDetailComponent,
     ProspectAddComponent,
+    InscriptionComponent,
+    DialogEvent,
     InscriptionComponent
   ],
   imports: [
@@ -73,6 +74,9 @@ FullCalendarModule.registerPlugins([
     MatTableModule,
     MatSortModule,
     MatGridListModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatDialogModule,
     MatSelectModule,
     MatCheckboxModule
   ],
