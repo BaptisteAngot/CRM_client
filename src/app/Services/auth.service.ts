@@ -18,7 +18,6 @@ export class AuthService {
   }
 
   register(user): Observable<any> {
-    console.log(user);
     return this.httpClient.post('api/user/create', user, httpOptions);
   }
 }

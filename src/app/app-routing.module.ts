@@ -6,8 +6,11 @@ import {ProfilComponent} from './Pages/profil/profil.component';
 import {ProspectComponent} from './Pages/prospect/prospect.component';
 import {ProspectDetailComponent} from './Pages/prospect-detail/prospect-detail.component';
 import {ProspectAddComponent} from './Pages/prospect-add/prospect-add.component';
+import { InscriptionComponent } from './Pages/inscription/inscription.component';
+
 const routes: Routes = [
   {path: 'connexion', component: LoginComponent},
+  {path: 'inscription', component: InscriptionComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'profil', component: ProfilComponent},
   {path: 'prospect', component: ProspectComponent},

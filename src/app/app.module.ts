@@ -36,6 +36,7 @@ import { ProspectDetailComponent } from './Pages/prospect-detail/prospect-detail
 import {MatSelectModule} from '@angular/material/select';
 import { ProspectAddComponent } from './Pages/prospect-add/prospect-add.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {InscriptionComponent} from './Pages/inscription/inscription.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -53,7 +54,8 @@ FullCalendarModule.registerPlugins([
     ProfilComponent,
     ProspectComponent,
     ProspectDetailComponent,
-    ProspectAddComponent
+    ProspectAddComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,

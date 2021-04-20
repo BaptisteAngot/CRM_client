@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {OrigineService} from '../../Services/origine.service';
 import {ProspectService} from '../../Services/prospect.service';
 import {generateErrorMessage} from 'codelyzer/angular/styles/cssLexer';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-prospect-add',
@@ -14,7 +15,7 @@ export class ProspectAddComponent implements OnInit {
   origin: [];
   errors: string = null;
 
-  constructor(private origineService: OrigineService, private prospectService: ProspectService) {
+  constructor(private origineService: OrigineService, private prospectService: ProspectService, private router: Router) {
     this.origineService.getAllOrigin().subscribe(value => {
       this.origin = value;
     }, error => {});
@@ -25,7 +26,7 @@ export class ProspectAddComponent implements OnInit {
 
   onSubmit(): void {
     this.prospectService.createProspect(this.prospect).subscribe(value => {
-      console.log(value);
+      this.router.navigate(['/prospect']);
     }, err => {
       this.errors = err.error.error;
     });

@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class InscriptionComponent implements OnInit {
   newUser: any = {
-    role: false
+    roles: false
   };
   registerFailed = false;
   registerSuccessful = false;
@@ -22,16 +22,11 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(): void {
-    if (this.newUser.role === true) {
-      this.newUser.role = 'ROLE_SUPER_ADMIN';
-    }else {
-      this.newUser.role = null;
-    }
     this.authService.register(JSON.stringify(this.newUser)).subscribe(
       data => {
         this.registerSuccessful = true;
         this.registerFailed = false;
-        this.router.navigate(['/inscription']);
+        this.router.navigate(['/']);
       },
       error => {
         this.errorMessage = error.error;
