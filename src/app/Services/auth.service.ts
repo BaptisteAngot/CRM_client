@@ -16,4 +16,8 @@ export class AuthService {
   login(loginInfos): Observable<any> {
     return this.httpClient.post('login', loginInfos, httpOptions);
   }
+
+  register(user): Observable<any> {
+    return this.httpClient.post('api/user/create', user, httpOptions);
+  }
 }
