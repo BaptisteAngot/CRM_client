@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +26,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import { ProfilComponent } from './Pages/profil/profil.component';
 import { ProspectComponent } from './Pages/prospect/prospect.component';
@@ -78,7 +77,8 @@ FullCalendarModule.registerPlugins([
     MatCheckboxModule,
     MatDialogModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatToolbarModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
