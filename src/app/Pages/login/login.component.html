@@ -1,25 +1,36 @@
-<div class="form">
-  <h1>Connexion</h1>
-  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+<div class="loginCss">
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+      <form class="login" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+          <input class="login__input" name="email" type="text" id="email" placeholder="Adresse email" required #email="ngModel" [(ngModel)]="loginInfos.email">
+          <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required" class="form--error" style="color: red;">Veuillez renseigner votre adresse email.</div>
+          </div>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+          <input name="password" type="password" id="password" placeholder="Mot de passe" required #password="ngModel" [(ngModel)]="loginInfos.password" class="login__input">
+          <div *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required" class="form--error" style="color: red;">Veuillez renseigner votre mot de passe.</div>
+          </div>
+				</div>
 
-    <label for="email"></label>
-    <input name="email" type="text" id="email" placeholder="Adresse email" required #email="ngModel" [(ngModel)]="loginInfos.email" class="form__type-input">
-    <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
-      <div *ngIf="email.errors.required" class="form--error">Veuillez renseigner votre adresse email.</div>
-    </div>
-
-
-    <label for="password"></label>
-    <input name="password" type="password" id="password" placeholder="Mot de passe" required #password="ngModel" [(ngModel)]="loginInfos.password" class="form__type-input">
-    <div *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
-      <div *ngIf="password.errors.required" class="form--error">Veuillez renseigner votre mot de passe.</div>
-    </div> <br><br>
-
-
-    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && loginFailed">Connexion échouée: {{ errorMessage }}</div>
-
-    <input type="submit" class="form__btn-submit" value="Connexion">
-  </form>
-
-
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && loginFailed">Connexion échouée: {{ errorMessage }}</div>
+        <button mat-raised-button  color="primary" type="submit" class="button login__submit">
+          <span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+        </button>
+			</form>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
 </div>
