@@ -1,0 +1,23 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Mail</th>
+    <th scope="col">Date de début</th>
+    <th scope="col">Date de fin</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="listRendezVous.length > 0">
+    <tr *ngFor="let rdv of listRendezVous">
+      <td scope="row" >{{ rdv.prospect_id.mail }}</td>
+      <td scope="row">{{rdv.date_start | date: "short"}}</td>
+      <td scope="row">{{rdv.date_end | date: "short"}}</td>
+      <td scope="row">{{rdv.description}}</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="listRendezVous.length == 0">
+    <tr>
+      <td colspan="4">Aucun rendez-vous.</td>
+    </tr>
+  </tbody>
+</table>

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProspectService} from '../../Services/prospect.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OrigineService} from '../../Services/origine.service';
+import {RendezVousService} from '../../Services/rendez-vous.service';
 
 @Component({
   selector: 'app-prospect-detail',
@@ -14,9 +15,10 @@ export class ProspectDetailComponent implements OnInit {
   sendSuccesfull = false;
   isEditing = false;
   statusVariable: string;
+  listRdv: any;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private prospectService: ProspectService, private route: ActivatedRoute, private router: Router, private origineService: OrigineService) {
+  constructor(private prospectService: ProspectService, private route: ActivatedRoute, private router: Router, private origineService: OrigineService, private rdvService: RendezVousService) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.prospectService.getOneProspect(this.id).subscribe(
       data => {
@@ -24,6 +26,13 @@ export class ProspectDetailComponent implements OnInit {
         this.statusVariable = data.status;
       }, err => {
       });
+    this.rdvService.getRendezVousProspect(this.id).subscribe(
+      data => {
+        this.listRdv = data;
+      }, err => {
+
+      }
+    );
   }
 
   ngOnInit(): void {

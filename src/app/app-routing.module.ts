@@ -7,6 +7,7 @@ import {ProspectComponent} from './Pages/prospect/prospect.component';
 import {ProspectDetailComponent} from './Pages/prospect-detail/prospect-detail.component';
 import {ProspectAddComponent} from './Pages/prospect-add/prospect-add.component';
 import { InscriptionComponent } from './Pages/inscription/inscription.component';
+import {AddRdvComponent} from './Pages/add-rdv/add-rdv.component';
 
 const routes: Routes = [
   {path: 'connexion', component: LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'prospect', component: ProspectComponent},
   {path: 'prospect/:id', component: ProspectDetailComponent},
   {path: 'prospect-add', component: ProspectAddComponent },
+  {path: 'rdvAdd/:id', component: AddRdvComponent },
 ];
 
 @NgModule({
