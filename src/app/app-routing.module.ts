@@ -7,12 +7,10 @@ import {ProspectComponent} from './Pages/prospect/prospect.component';
 import {ProspectDetailComponent} from './Pages/prospect-detail/prospect-detail.component';
 import {ProspectAddComponent} from './Pages/prospect-add/prospect-add.component';
 import { InscriptionComponent } from './Pages/inscription/inscription.component';
-import {DisconnectComponent} from './Pages/disconnect/disconnect.component';
 
 const routes: Routes = [
   {path: 'connexion', component: LoginComponent},
   {path: 'inscription', component: InscriptionComponent},
-  {path: 'disconnect', component: DisconnectComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'profil', component: ProfilComponent},
   {path: 'prospect', component: ProspectComponent},
