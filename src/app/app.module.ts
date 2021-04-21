@@ -37,6 +37,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ProspectAddComponent } from './Pages/prospect-add/prospect-add.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {InscriptionComponent} from './Pages/inscription/inscription.component';
+import { DisconnectComponent } from './Pages/disconnect/disconnect.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -56,7 +57,8 @@ FullCalendarModule.registerPlugins([
     ProspectAddComponent,
     InscriptionComponent,
     DialogEvent,
-    InscriptionComponent
+    InscriptionComponent,
+    DisconnectComponent
   ],
   imports: [
     BrowserModule,
