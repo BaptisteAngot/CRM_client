@@ -10,3 +10,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-align-right {
   text-align: right;
 }
+
+.fc .fc-col-header-cell-cushion {
+  color: white !important;
+}
+.fc-daygrid-dot-event .fc-event-title,.fc-event-time, .fc-daygrid-day-number, .fc-toolbar-title {
+  color: white !important;
+}

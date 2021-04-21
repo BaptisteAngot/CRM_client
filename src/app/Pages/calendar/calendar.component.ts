@@ -1,7 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/angular';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {CalendarOptions, FullCalendarComponent} from '@fullcalendar/angular';
 import { MatDialog } from '@angular/material/dialog';
 import {DialogEvent} from './Dialog/dialog-event.component';
+import {RendezVousService} from '../../Services/rendez-vous.service';
+import {EventDTOInterface} from '../../Modals/EventDTO.interface';
 
 @Component({
   selector: 'app-calendar',
@@ -9,21 +11,23 @@ import {DialogEvent} from './Dialog/dialog-event.component';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  events: Array<any> = [];
+  testarray: Array<any> = [];
 
-  constructor(public dialog: MatDialog) { }
+  @ViewChild('calendar') calendar: FullCalendarComponent;
+
+  constructor(public dialog: MatDialog, private rendezVousService: RendezVousService) {
+  }
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     locale: 'fr',
-    events: [
-      { title: 'event 1', date: '2021-03-26' },
-      { title: 'event 2', date: '2021-03-27', }
-    ],
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
       right: 'dayGridMonth'
     },
+    eventTextColor: '#ffffff',
   };
 
   openDialog(): void {
@@ -31,8 +35,24 @@ export class CalendarComponent implements OnInit {
 
     });
   }
+  getItem(): void {
+    this.rendezVousService.getRendezVous().subscribe(data => {
+      data.forEach(evenement => {
+        const testObj = {
+          title: evenement.description,
+          start: evenement.date_start,
+          end: evenement.date_end
+        };
+        this.calendar.getApi().addEvent(testObj);
+        this.calendar.getApi().render();
+      });
 
-  ngOnInit(): void {
+    }, error => {
+
+    });
   }
 
+  ngOnInit(): void {
+    this.getItem();
+  }
 }
