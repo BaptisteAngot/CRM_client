@@ -1,0 +1,9 @@
+<div class="form">
+  <h1>Creation d'un rendez-vous</h1>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <textarea name="description" #description [(ngModel)]="FormInfos.description" id="description"></textarea>
+    <input type="datetime-local" #dateStart [(ngModel)]="FormInfos.dateStart" id="dateStart" name="dateStart">
+    <input type="datetime-local" #dateEnd [(ngModel)]="FormInfos.dateEnd" id="dateEnd" name="dateEnd">
+    <input type="submit" class="form__btn-submit" value="Envoyer">
+  </form>
+</div>

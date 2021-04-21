@@ -25,9 +25,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 
-
 import {MatToolbarModule} from '@angular/material/toolbar';
-
 import { ProfilComponent } from './Pages/profil/profil.component';
 import { ProspectComponent } from './Pages/prospect/prospect.component';
 import {MatSortModule} from '@angular/material/sort';
@@ -36,6 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { ProspectAddComponent } from './Pages/prospect-add/prospect-add.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {InscriptionComponent} from './Pages/inscription/inscription.component';
+import { RdvListComponentComponent } from './Components/rdv-list-component/rdv-list-component.component';
+import { AddRdvComponent } from './Pages/add-rdv/add-rdv.component';
 
 FullCalendarModule.registerPlugins([
   dayGridPlugin,
@@ -55,7 +55,9 @@ FullCalendarModule.registerPlugins([
     ProspectAddComponent,
     InscriptionComponent,
     DialogEvent,
-    InscriptionComponent
+    InscriptionComponent,
+    RdvListComponentComponent,
+    AddRdvComponent
   ],
   imports: [
     BrowserModule,
