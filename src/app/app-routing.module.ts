@@ -12,6 +12,7 @@ import {ProspectAddComponent} from './Pages/prospect-add/prospect-add.component'
 import { InscriptionComponent } from './Pages/inscription/inscription.component';
 import {AddRdvComponent} from './Pages/add-rdv/add-rdv.component';
 import {AddRdvClientComponent} from './Pages/add-rdv-client/add-rdv-client.component';
+import {AccueilComponent} from './Pages/accueil/accueil.component';
 import {AdministrateurComponent} from './Pages/administrateur/administrateur.component';
 import {UserAddComponent} from './Pages/user-add/user-add.component';
 import {UserDetailComponent} from './Pages/user-detail/user-detail.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'calendar', component: CalendarComponent},
   {path: 'profil', component: ProfilComponent},
+  {path: 'accueil', component: AccueilComponent},
   {path: 'prospect', component: ProspectComponent},
   {path: 'client', component: ClientComponent},
   {path: 'client-add', component: ClientAddComponent },
