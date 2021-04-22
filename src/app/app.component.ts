@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {TokenStorageService} from './Services/token-storage.service';
+import {$e} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-root',
@@ -19,5 +20,8 @@ export class AppComponent {
     }else {
       section.classList.remove('navActive');
     }
+  }
+  onOpen($event: boolean): void {
+    console.log($event);
   }
 }
