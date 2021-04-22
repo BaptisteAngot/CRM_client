@@ -8,7 +8,7 @@
     <a routerLink="/">Accueil</a>
     <a routerLink="/profil">Profil</a>
     <a routerLink="/prospect">Prospect</a>
-    <a routerLink="">Client</a>
+    <a routerLink="/client">Client</a>
     <a routerLink="/calendar">Calendar</a>
   </div>
 </div>
@@ -16,8 +16,9 @@
   <app-menu id="menu" [user]="user"></app-menu>
   <div id="content">
     <div id="contentBody">
-      <router-outlet></router-outlet>
+      <router-outleLOt></router-outleLOt>
     </div>
   </div>
 </div>
 <app-login *ngIf="user == null"></app-login>
+<lib-cookie-service (isOpened)="onOpen($event)" ></lib-cookie-service>
