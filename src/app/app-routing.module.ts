@@ -12,6 +12,9 @@ import {ProspectAddComponent} from './Pages/prospect-add/prospect-add.component'
 import { InscriptionComponent } from './Pages/inscription/inscription.component';
 import {AddRdvComponent} from './Pages/add-rdv/add-rdv.component';
 import {AddRdvClientComponent} from './Pages/add-rdv-client/add-rdv-client.component';
+import {AdministrateurComponent} from './Pages/administrateur/administrateur.component';
+import {UserAddComponent} from './Pages/user-add/user-add.component';
+import {UserDetailComponent} from './Pages/user-detail/user-detail.component';
 
 const routes: Routes = [
   {path: 'connexion', component: LoginComponent},
@@ -26,6 +29,9 @@ const routes: Routes = [
   {path: 'prospect-add', component: ProspectAddComponent },
   {path: 'rdvAdd/:id', component: AddRdvComponent },
   {path: 'rdvAddClient/:id', component: AddRdvClientComponent },
+  {path: 'admin', component: AdministrateurComponent},
+  {path: 'user-add', component: UserAddComponent },
+  {path: 'user/:id', component: UserDetailComponent},
 ];
 
 @NgModule({

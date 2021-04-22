@@ -1,37 +1,35 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import {ClientService} from '../../Services/client.service';
+import {UserService} from '../../Services/user.service';
 import {Router} from '@angular/router';
-import {Client} from '../../Modals/Client.interface';
+import {User} from '../../Modals/User.interface';
 
-const ELEMENT_DATA: Client[] = [];
+
+const ELEMENT_DATA: User[] = [];
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class ClientComponent implements AfterViewInit {
+export class UserComponent  implements AfterViewInit {
 
-  displayedColumns: string[] = ['mail', 'nom','prenom','fonction', 'telephone', 'created_at', 'actions'];
+  displayedColumns: string[] = ['email','last_name','first_name', 'telephone', 'fonction','created_at', 'actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort) sort: MatSort;
-
-  constructor(private ClientService: ClientService, private router: Router) {
-    ClientService.getAllClient().subscribe(
+  constructor(private UserService: UserService, private router: Router) {
+    UserService.getAllUser().subscribe(
       data => {
         this.dataSource.data = data;
       }, error => {}
     );
   }
 
-
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
-
    // tslint:disable-next-line:typedef
    applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
