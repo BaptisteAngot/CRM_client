@@ -1,6 +1,21 @@
 <mat-card>
   <div class="form">
-    <h1 class="center-align">client : {{client.nom}}</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1 class="center-align">client : {{client.nom}}</h1>
+        </div>
+        <div class="col text-align-right">
+          <a href="mailto:{{client.mail}}">
+            <mat-icon aria-hidden="false" aria-label="Example email icon">email</mat-icon>
+          </a>
+          <a href="tel:{{client.telephone}}">
+            <mat-icon aria-hidden="false" aria-label="Example call icon">call</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate *ngIf="!sendSuccesfull" action="">
       <mat-grid-list cols="3" rowHeight="5:1">
         <mat-grid-tile>

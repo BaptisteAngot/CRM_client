@@ -1,0 +1,19 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+
+  <mat-grid-tile>
+    <mat-card>
+      <h1>Clients</h1>
+      <p>Nombre de clients total : <span class="font-weight-bold">{{numberClientTotal}}</span></p>
+      <p>Nombre de clients vous appartenant : <span class="font-weight-bold">{{numberClient}}</span></p>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-card>
+      <h1>Prospects</h1>
+      <p>Nombre de prospect chaud : <span class="font-weight-bold">{{stats.HARD}}</span></p>
+      <p>Nombre de prospect tiede : <span class="font-weight-bold">{{stats.TIEDE}}</span></p>
+      <p>Nombre de prospect froid : <span class="font-weight-bold">{{stats.FROID}}</span></p>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
