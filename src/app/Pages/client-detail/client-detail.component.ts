@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ClientService} from '../../Services/client.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {RendezVousService} from '../../Services/rendez-vous.service';
 
 @Component({
   selector: 'app-client-detail',
@@ -13,17 +14,24 @@ export class ClientDetailComponent implements OnInit {
   sendSuccesfull = false;
   isEditing = false;
   statusVariable: string;
+  listRdv: any;
 
   // tslint:disable-next-line:max-line-length
-  constructor(private ClientService: ClientService, private route: ActivatedRoute, private router: Router) {
+  constructor(private clientService: ClientService, private route: ActivatedRoute, private router: Router,  private rdvService: RendezVousService) {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.ClientService.getOneClient(this.id).subscribe(
+    this.clientService.getOneClient(this.id).subscribe(
       data => {
         this.client = data;
-        console.log(data);
         this.statusVariable = data.status;
       }, err => {
       });
+    this.rdvService.getRendezVousClient(this.id).subscribe(
+      data => {
+        this.listRdv = data;
+      }, err => {
+
+      }
+    );
   }
 
 
@@ -32,7 +40,7 @@ export class ClientDetailComponent implements OnInit {
 
   onSubmit(): void {
     this.isEditing = false;
-    this.ClientService.updateClient(this.client).subscribe(data => {}, error => {});
+    this.clientService.updateClient(this.client).subscribe(data => {}, error => {});
     setTimeout(() => {
       this.reloadCurrentRoute();
     }, 1000);
@@ -42,7 +50,7 @@ export class ClientDetailComponent implements OnInit {
   disabledClient(id): void {
     const r = confirm('Êtes vous sûr de vouloir désactiver ce client ?');
     if (r === true) {
-      this.ClientService.disabledClient(id).subscribe(value => {
+      this.clientService.disabledClient(id).subscribe(value => {
       }, error => {
       });
       setTimeout(() => {
@@ -55,7 +63,6 @@ export class ClientDetailComponent implements OnInit {
     this.isEditing = true;
   }
 
- 
   reloadCurrentRoute(): void {
     const currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
