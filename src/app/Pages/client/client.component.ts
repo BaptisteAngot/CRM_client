@@ -22,11 +22,11 @@ export class ClientComponent implements AfterViewInit {
   constructor(private clientService: ClientService, private router: Router) {
     clientService.getAllClient().subscribe(
       data => {
+
         this.dataSource.data = data.filter(this.filter);
       }, error => {}
     );
   }
-
   filter(element): any {
     if (element.disabled === false) {
       return element;

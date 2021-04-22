@@ -12,7 +12,7 @@
   </div>
   <div class="bottomMenu">
     <hr>
-    <a href="" class="green" *ngIf="admin">Administrateur</a>
+    <a routerLink="/admin" class="green" *ngIf="admin">Administrateur</a>
     <p class="green pointer" (click)="disconnectUser()">Se déconnecter</p>
   </div>
 </nav>
