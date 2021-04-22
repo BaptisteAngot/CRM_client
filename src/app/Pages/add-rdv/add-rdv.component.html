@@ -1,9 +1,32 @@
-<div class="form">
-  <h1>Creation d'un rendez-vous</h1>
-  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-    <textarea name="description" #description [(ngModel)]="FormInfos.description" id="description"></textarea>
-    <input type="datetime-local" #dateStart [(ngModel)]="FormInfos.dateStart" id="dateStart" name="dateStart">
-    <input type="datetime-local" #dateEnd [(ngModel)]="FormInfos.dateEnd" id="dateEnd" name="dateEnd">
-    <input type="submit" class="form__btn-submit" value="Envoyer">
-  </form>
-</div>
+<mat-card>
+  <div class="form">
+    <h1 class="center-align">Creation d'un rendez-vous</h1>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <mat-grid-list cols="3" rowHeight="3:1"> 
+
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>dateStart</mat-label>
+        <input matInput type="datetime-local" #dateStart [(ngModel)]="FormInfos.dateStart" id="dateStart" name="dateStart">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>dateEnd</mat-label>
+          <input matInput type="datetime-local" #dateEnd [(ngModel)]="FormInfos.dateEnd" id="dateEnd" name="dateEnd">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="fill">
+          <mat-label>description</mat-label>
+          <textarea matInput name="description" #description [(ngModel)]="FormInfos.description" id="description"></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+  
+      </mat-grid-list>
+      <input type="submit" class="form__btn-submit" value="Envoyer">
+    </form>
+  </div>
+</mat-card>
