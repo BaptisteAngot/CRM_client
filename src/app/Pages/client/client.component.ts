@@ -19,12 +19,18 @@ export class ClientComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private ClientService: ClientService, private router: Router) {
-    ClientService.getAllClient().subscribe(
+  constructor(private clientService: ClientService, private router: Router) {
+    clientService.getAllClient().subscribe(
       data => {
-        this.dataSource.data = data;
+
+        this.dataSource.data = data.filter(this.filter);
       }, error => {}
     );
+  }
+  filter(element): any {
+    if (element.disabled === false) {
+      return element;
+    }
   }
 
 
@@ -43,5 +49,18 @@ export class ClientComponent implements AfterViewInit {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
       this.router.navigate([currentUrl]);
     });
+  }
+
+  disabledClient(id): void {
+    const r = confirm('Êtes vous sûr de vouloir désactiver ce client ?');
+    if (r === true) {
+      this.clientService.disabledClient(id).subscribe(value => {
+      }, error => {
+      });
+      setTimeout(() => {
+        this.router.navigate(['/client']);
+        window.location.reload();
+      }, 2000);
+    }
   }
 }
