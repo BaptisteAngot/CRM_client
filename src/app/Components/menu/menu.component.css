@@ -2,10 +2,18 @@
   min-width: 15rem;
   max-width: 15rem;
   min-height: 100vh;
-  background-color: #420562;
+  background-color: #48427b;
   color: #ffffff;
   text-align: center;
   position: relative;
+}
+.menuListSidebar {
+  padding-top: 2rem;
+  font-size: 1.1rem;
+  line-height: 2;
+}
+.menuListSidebar a:focus {
+  background-color: #2d294e;
 }
 
 .margin {
@@ -80,14 +88,17 @@ hr {
 }
 
 .nameEntreprise {
+  font-size: 1.1rem;
   color: #8cd9ee;
 }
 
 .green {
-  color: #b7e1a4;
+  color: #ffffff;
 }
 
 .bottomMenu {
+  font-size: 1.1rem;
+  line-height: 2;
   position: absolute;
   bottom: 0;
   margin: 0 auto;
