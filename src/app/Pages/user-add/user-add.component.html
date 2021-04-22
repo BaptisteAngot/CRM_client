@@ -1,0 +1,87 @@
+<mat-card>
+    <div class="form">
+      <h1 class="center-align">Nouveau user</h1>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate *ngIf="!sendSuccesfull" action="">
+        <mat-grid-list cols="3" rowHeight="3:1">
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input [email] [(ngModel)]="user.email" #email="ngModel" name="email" type="eemail" required maxlength="254" matInput>
+              <div *ngIf="email.invalid && (email.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="email.errors.required">Une adresse email doit être renseignée.</div>
+                <div class="form--error" *ngIf="email.errors.maxlength">Adresse email trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Mot de passe</mat-label>
+              <input type="password" matInput #password="ngModel" maxlength="254" [(ngModel)]="user.password" name="password">
+              <div *ngIf="password.invalid && (password.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="password.errors.maxlength">Nom trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Nom</mat-label>
+              <input type="text" matInput #lastName="ngModel" maxlength="254" [(ngModel)]="user.lastName" name="lastName">
+              <div *ngIf="lastName.invalid && (lastName.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="lastName.errors.maxlength">Nom trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Prénom</mat-label>
+              <input type="text" matInput #firstName="ngModel" maxlength="254" [(ngModel)]="user.firstName" name="firstName">
+              <div *ngIf="firstName.invalid && (firstName.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="firstName.errors.maxlength">Prénom trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Téléphone</mat-label>
+              <input type="text" matInput #telephone="ngModel" maxlength="254" [(ngModel)]="user.telephone" name="telephone">
+              <div *ngIf="telephone.invalid && (telephone.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="telephone.errors.maxlength">telephone trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>fonction</mat-label>
+              <input type="text" matInput #fonction="ngModel" maxlength="254" [(ngModel)]="user.fonction" name="fonction">
+              <div *ngIf="fonction.invalid && (fonction.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="fonction.errors.maxlength">fonction trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+          
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Description</mat-label>
+              <textarea matInput [(ngModel)]="user.description" #description="ngModel" maxlength="1024" name="description"></textarea>
+              <div *ngIf="description.invalid && (description.touched)" class="alert alert-danger">
+                <div *ngIf="description.errors.maxlength" class="form--error">Description trop longue. 1024 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-checkbox required [(ngModel)]="user.rgpd" name="rgpd">J'accepte les conditions générales d'utilisations </mat-checkbox>
+        </mat-grid-tile>
+
+        </mat-grid-list>
+        <input *ngIf="f.form.valid" type="submit" class="form__btn-submit center-button" value="Valider">
+        <p *ngIf="errors !== null" class="red-text">Erreur : {{errors['1'] }}</p>
+      </form>
+    </div>
+  </mat-card>
+  

@@ -1,0 +1,81 @@
+<mat-card>
+    <div class="form">
+      <h1 class="center-align">Utilisateur : {{user.lastName}}</h1>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate *ngIf="!sendSuccesfull" action="">
+        <mat-grid-list cols="3" rowHeight="5:1">
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Mail</mat-label>
+              <input [email] [disabled]="!isEditing" [(ngModel)]="user.email" #mail="ngModel" name="email" type="email" required maxlength="254" matInput>
+
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Nom</mat-label>
+              <input [disabled]="!isEditing" type="text" matInput #lastName="ngModel" maxlength="254" [(ngModel)]="user.lastName" name="lastName">
+
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Prénom</mat-label>
+              <input [disabled]="!isEditing" type="text" matInput #firstName="ngModel" maxlength="254" [(ngModel)]="user.firstName" name="firstName">
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Mot de passe</mat-label>
+              <input [disabled]="!isEditing" type="text" matInput #password="ngModel" maxlength="254" [(ngModel)]="user.password" name="password">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Telephone</mat-label>
+              <textarea [disabled]="!isEditing" matInput [(ngModel)]="user.telephone" #telephone="ngModel" maxlength="1024" name="telephone"></textarea>
+ 
+            </mat-form-field>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>description</mat-label>
+              <textarea [disabled]="!isEditing" matInput [(ngModel)]="user.description" #description="ngModel" maxlength="1024" name="description"></textarea>
+            </mat-form-field>
+          </mat-grid-tile>
+
+ 
+        </mat-grid-list>
+        <input *ngIf="f.form.valid && isEditing" type="submit" class="form__btn-submit center-button" value="Valider">
+      </form>
+  
+    </div>
+    <mat-card-footer>
+      <mat-grid-list cols="2" rowHeight="5:1">
+        <mat-grid-tile class="text-align-right">
+          <button *ngIf="!isEditing" (click)="editUser()" mat-button ><mat-icon class="button-red" aria-hidden="false" aria-label="auto_fix_high icon">auto_fix_high</mat-icon></button>
+          <button *ngIf="!user.disabled" (click)="disabledUser(user.id)" mat-button ><mat-icon class="button-red" aria-hidden="false" aria-label="disabled_by_default icon">disabled_by_default</mat-icon></button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-footer>
+  </mat-card>
+  <br>
+  <!-- <mat-card>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Rendez-vous avec ce user</h2>
+        </div>
+        <div class="col text-align-right">
+          <a routerLink="/rdvAdd/{{id}}"><mat-icon class="margin" aria-hidden="false" aria-label="icon">add</mat-icon></a>
+        </div>
+      </div>
+    </div>
+    <app-rdv-list-component [Client]="false" [listRendezVous]="listRdv" ></app-rdv-list-component>
+  </mat-card> -->
+  

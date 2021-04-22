@@ -43,6 +43,10 @@ import { RdvListComponentComponent } from './Components/rdv-list-component/rdv-l
 import { AddRdvComponent } from './Pages/add-rdv/add-rdv.component';
 import { AddRdvClientComponent } from './Pages/add-rdv-client/add-rdv-client.component';
 import { AccueilComponent } from './Pages/accueil/accueil.component';
+import { UserComponent } from './Pages/user/user.component';
+import { AdministrateurComponent } from './Pages/administrateur/administrateur.component';
+import { UserAddComponent } from './Pages/user-add/user-add.component';
+import { UserDetailComponent } from './Pages/user-detail/user-detail.component';
 
 
 FullCalendarModule.registerPlugins([
@@ -71,6 +75,10 @@ FullCalendarModule.registerPlugins([
     AddRdvComponent,
     AddRdvClientComponent,
     AccueilComponent
+    UserComponent,
+    AdministrateurComponent,
+    UserAddComponent,
+    UserDetailComponent
 
   ],
   imports: [
