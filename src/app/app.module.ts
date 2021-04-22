@@ -41,52 +41,6 @@ import { ClientDetailComponent } from './Pages/client-detail/client-detail.compo
 
 import { RdvListComponentComponent } from './Components/rdv-list-component/rdv-list-component.component';
 import { AddRdvComponent } from './Pages/add-rdv/add-rdv.component';
-import { CookieServiceModule, CookieConfig } from 'cookie-service-banner';
-
-const testLibConfig: CookieConfig = {
-  header:
-    {
-      title: 'Cookie Consent Banner',
-      message: 'Ce site utiles des cookies. ',
-      domain: 'localhost',
-      ga_id: 'UA-123456-1',
-      color: '#ffffff',
-      bcolor: '#420562'
-    },
-  acceptButton:
-    {
-      enable: false,
-      accept: 'Got it!',
-      color: '#fff',
-      bcolor: '#266433'
-    },
-  allowButton:
-    {
-      enable: true,
-      allow: 'J\'accepte les cookies ',
-      color: '#000',
-      bcolor: '#f36e15f5'
-    },
-  declineButton:
-    { enable: true,
-      deny: 'Je refuse',
-      color: '#000',
-      bcolor: '#fff'
-    },
-  learnMoreLink:
-    {
-      enable: true,
-      learnMore: 'En savoir plus',
-      link: '',
-      color: '#3D9BFF'
-    },
-  review: {
-    enable: true,
-    message: 'Je revois mon consentement',
-    color: '',
-    bcolor: ''
-  }
-};
 
 
 FullCalendarModule.registerPlugins([
@@ -110,7 +64,7 @@ FullCalendarModule.registerPlugins([
     InscriptionComponent,
     ClientComponent,
     ClientAddComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
     RdvListComponentComponent,
     AddRdvComponent
 
@@ -136,9 +90,7 @@ FullCalendarModule.registerPlugins([
     MatDialogModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatToolbarModule,
-    CookieServiceModule,
-    CookieServiceModule.forRoot(testLibConfig)
+    MatToolbarModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
