@@ -1,0 +1,62 @@
+<mat-card>
+    <div class="form">
+      <h1 class="center-align">Nouveau client</h1>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate *ngIf="!sendSuccesfull" action="">
+        <mat-grid-list cols="3" rowHeight="3:1">
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Mail</mat-label>
+              <input [email] [(ngModel)]="client.mail" #mail="ngModel" name="mail" type="email" required maxlength="254" matInput>
+              <div *ngIf="mail.invalid && (mail.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="mail.errors.required">Une adresse mail doit être renseignée.</div>
+                <div class="form--error" *ngIf="mail.errors.maxlength">Adresse email trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Nom</mat-label>
+              <input type="text" matInput #nom="ngModel" maxlength="254" [(ngModel)]="client.nom" name="nom">
+              <div *ngIf="nom.invalid && (nom.touched)" class="alert alert-danger">
+                <div class="form--error" *ngIf="nom.errors.maxlength">Nom trop longue. 254 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>prenom</mat-label>
+              <textarea matInput [(ngModel)]="client.prenom" #prenom="ngModel" maxlength="1024" name="prenom"></textarea>
+              <div *ngIf="prenom.invalid && (prenom.touched)" class="alert alert-danger">
+                <div *ngIf="prenom.errors.maxlength" class="form--error">prenom trop longue. 1024 caractères max.</div>
+              </div>
+            </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field appearance="fill">
+              <mat-label>Fonction</mat-label>
+              <textarea matInput [(ngModel)]="client.fonction" #fonction="ngModel" maxlength="1024" name="fonction"></textarea>
+              <div *ngIf="fonction.invalid && (fonction.touched)" class="alert alert-danger">
+                <div *ngIf="fonction.errors.maxlength" class="form--error">fonction trop longue. 1024 caractères max.</div>
+              </div>
+            </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>telephone</mat-label>
+                <textarea matInput [(ngModel)]="client.telephone" #telephone="ngModel" maxlength="1024" name="telephone"></textarea>
+                <div *ngIf="telephone.invalid && (telephone.touched)" class="alert alert-danger">
+                  <div *ngIf="telephone.errors.maxlength" class="form--error">telephone trop longue. 1024 caractères max.</div>
+                </div>
+              </mat-form-field>
+              </mat-grid-tile>
+   
+          <mat-grid-tile>
+              <mat-checkbox required [(ngModel)]="client.rgpd" name="rgpd">J'accepte les conditions générales d'utilisations </mat-checkbox>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <input *ngIf="f.form.valid" type="submit" class="form__btn-submit center-button" value="Valider">
+        <p *ngIf="errors !== null" class="red-text">Erreur : {{errors['1'] }}</p>
+      </form>
+    </div>
+  </mat-card>
+  
