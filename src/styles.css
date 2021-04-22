@@ -12,8 +12,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .fc .fc-col-header-cell-cushion {
-  color: white !important;
+  color: #000000 !important;
 }
 .fc-daygrid-dot-event .fc-event-title,.fc-event-time, .fc-daygrid-day-number, .fc-toolbar-title {
-  color: white !important;
+  color: #000000 !important;
+}
+.fc-h-event {
+  background-color: #ffffffb3 !important;
+}
+.fc-event-main {
+  cursor: pointer !important;
+}
+.bottom{
+  left: inherit !important;
 }

@@ -27,7 +27,7 @@ export class CalendarComponent implements OnInit {
       center: 'title',
       right: 'dayGridMonth'
     },
-    eventTextColor: '#ffffff',
+    eventTextColor: '#000000',
   };
 
   openDialog(): void {

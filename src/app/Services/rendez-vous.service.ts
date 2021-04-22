@@ -16,4 +16,16 @@ export class RendezVousService {
   getRendezVous(): Observable<any> {
     return this.httpClient.get('api/rendezvous/getrendezvous', httpOptions);
   }
+
+  getRendezVousProspect(id): Observable<any> {
+    return this.httpClient.get('api/rendezvous/getrendezvousProspect/' + id, httpOptions);
+  }
+
+  getRendezVousClient(id): Observable<any> {
+    return this.httpClient.get('api/rendezvous/getrendezvousClient/' + id, httpOptions);
+  }
+
+  addRendezVousProspect(infos): Observable<any> {
+    return this.httpClient.post('api/rendezvous/create', infos, httpOptions);
+  }
 }

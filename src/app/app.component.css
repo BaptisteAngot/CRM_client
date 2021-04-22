@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   align-items: stretch;
-  background-color: var(--darkBlue);
+  background-color: #420562;
 }
 
 #content {
@@ -13,7 +13,7 @@
 
 #contentBody {
   padding: 1rem;
-  background-color: #2b2e4a;
+  background: linear-gradient(90deg, #C7C5F4, #424055);
   min-height: 100vh;
 }
 
@@ -36,10 +36,14 @@
     display: block !important;
   }
   .colorDarkblue{
-    background-color: var(--darkBlue);
+    background-color: #420562;
   }
   .navActive a {
     display: block;
     text-decoration: none;
   }
+}
+
+.whiteColor {
+  color: white;
 }

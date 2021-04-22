@@ -1,7 +1,7 @@
 <div id="burger" class="page-container">
   <div class="colorDarkblue" *ngIf="user != null">
     <button mat-button class="menu-button" (click)="open()">
-      <mat-icon>menu</mat-icon>
+      <mat-icon class="whiteColor">menu</mat-icon>
     </button>
   </div>
   <div id="menuBurger">
@@ -16,8 +16,9 @@
   <app-menu id="menu" [user]="user"></app-menu>
   <div id="content">
     <div id="contentBody">
-      <router-outlet></router-outlet>
+      <router-outleLOt></router-outleLOt>
     </div>
   </div>
 </div>
 <app-login *ngIf="user == null"></app-login>
+<lib-cookie-service (isOpened)="onOpen($event)" ></lib-cookie-service>

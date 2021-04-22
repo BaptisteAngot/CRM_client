@@ -57,3 +57,17 @@
     </mat-grid-list>
   </mat-card-footer>
 </mat-card>
+<br>
+<mat-card>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Rendez-vous avec ce prospect</h2>
+      </div>
+      <div class="col text-align-right">
+        <a routerLink="/rdvAdd/{{id}}"><mat-icon class="margin" aria-hidden="false" aria-label="icon">add</mat-icon></a>
+      </div>
+    </div>
+  </div>
+  <app-rdv-list-component [listRendezVous]="listRdv" ></app-rdv-list-component>
+</mat-card>
