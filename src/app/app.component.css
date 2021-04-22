@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   align-items: stretch;
-  background-color: #420562;
+  background-color: #48427b;
 }
 
 #content {
@@ -36,7 +36,7 @@
     display: block !important;
   }
   .colorDarkblue{
-    background-color: #420562;
+    background-color: #48427b;
   }
   .navActive a {
     display: block;
