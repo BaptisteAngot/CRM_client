@@ -1,0 +1,58 @@
+<div class="headerFilter">
+    <mat-grid-list cols="2" rowHeight="10:1">
+      <mat-grid-tile>
+        <mat-form-field class="filterInput">
+          <mat-label>Filtre de recherche..</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Filtre de recherche.." #input>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile class="text-align-right">
+        <a class="alignOnRight" routerLink="/client-add"><mat-icon class="margin" aria-hidden="false" aria-label="icon">add</mat-icon></a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="mail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.mail}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+      <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> prenom </th>
+      <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fonction">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Fonction </th>
+      <td mat-cell *matCellDef="let element"> {{element.fonction}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
+      <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="created_at">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Creation </th>
+      <td mat-cell *matCellDef="let element"> {{element.created_at.date | date }}  </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell  *matHeaderCellDef > Actions </th>
+      <td mat-cell *matCellDef="let element" >
+        <a routerLink="/client/{{element.id}}"><button mat-button ><mat-icon aria-hidden="false" aria-label="info icon">info</mat-icon></button></a>
+        <button (click)="deleteClient(element.id)" mat-button ><mat-icon class="button-red" aria-hidden="false" aria-label="delete_forever icon">delete_forever</mat-icon></button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
