@@ -18,11 +18,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #000000 !important;
 }
 .fc-h-event {
-  background-color: #ffffffb3 !important;
+  background-color: #6F4287 !important;
 }
 .fc-event-main {
   cursor: pointer !important;
 }
 .bottom{
   left: inherit !important;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+  background-color: #6F4287 !important;
+  text-transform: uppercase;
+}
+.fc .fc-button-primary:disabled, .fc .fc-button:not(:disabled) {
+  background-color: #6F4287 !important;
+  text-transform: uppercase;
+}
+.fc .fc-button-primary {
+  background-color: #6F4287 !important;
+}
+.fc .fc-daygrid-event-harness-abs {
+  font-size: 1.2rem !important;
+  color: white !important;
+}
+.fc-direction-ltr .fc-daygrid-event.fc-event-start, .fc-direction-rtl .fc-daygrid-event.fc-event-end {
+  height: 30px;
+}
+.fc-h-event .fc-event-title-container {
+  height: 20px;
+}
+.fc-daygrid-dot-event .fc-event-title, .fc-event-time ,.fc-event-title.fc-sticky {
+  color: black !important;
 }
