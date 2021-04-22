@@ -74,7 +74,7 @@ FullCalendarModule.registerPlugins([
     RdvListComponentComponent,
     AddRdvComponent,
     AddRdvClientComponent,
-    AccueilComponent
+    AccueilComponent,
     UserComponent,
     AdministrateurComponent,
     UserAddComponent,
