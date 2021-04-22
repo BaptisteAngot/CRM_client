@@ -7,11 +7,11 @@ import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 })
 export class RdvListComponentComponent implements OnInit, AfterViewInit {
   @Input() listRendezVous: any;
+  @Input() Client: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.listRendezVous);
   }
 
   ngAfterViewInit(): void {
