@@ -23,3 +23,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .fc-event-main {
   cursor: pointer !important;
 }
+.bottom{
+  left: inherit !important;
+}
